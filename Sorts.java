@@ -1,3 +1,4 @@
+import java.util.*;
 public class Sorts {
 
   public static void bubbleSort(int[] data) {
@@ -18,6 +19,42 @@ public class Sorts {
     }
     ///end of method
   }
+
+  public static void selectionSort(int[] data) {
+    for (int i = 0; i < data.length; i++) {
+      int min = data[i];
+      for (int j = i; j < data.length; j++) {
+        if (data[j] < min) {
+          min = data[j];
+        }
+      }
+      int t = data[i];
+      data[i] = min;
+    }
+  }
+
+  public static void insertionSort(int[] data) {
+    for (int i = 0; i < data.length; i++) {
+      int current = data[i];  Integer temp = null;
+      for (int j = 0; j < i; j++) {
+        if (current < data[j+1]) {
+          temp = data[j];
+          data[j] = current;
+        } else if (temp != null) {
+          int temptemp = data[j];
+          data[j] = (int)temp;
+          temp = temptemp;
+        }
+        //if (j == i - 1 && current > data[j]) data[i] = current;
+        //System.out.println(data.toString());
+      }
+     }
+   }
+
+
+
+
+
 
 //end of program
 }
