@@ -22,32 +22,34 @@ public class Sorts {
 
   public static void selectionSort(int[] data) {
     for (int i = 0; i < data.length; i++) {
-      int min = data[i];
+      int min = data[i]; int minLoc = i;
       for (int j = i; j < data.length; j++) {
         if (data[j] < min) {
-          min = data[j];
+          min = data[j];  minLoc = j;
         }
       }
       int t = data[i];
       data[i] = min;
+      data[minLoc] = t;
+      //System.out.println(Arrays.toString(data));
     }
   }
 
-  public static void insertionSort(int[] data) {
-    for (int i = 0; i < data.length; i++) {
-      int current = data[i];  Integer temp = null;
-      for (int j = 0; j < i; j++) {
-        if (current < data[j+1]) {
-          temp = data[j];
-          data[j] = current;
-        } else if (temp != null) {
-          int temptemp = data[j];
-          data[j] = (int)temp;
-          temp = temptemp;
+  public static void insertionSort(int[] data) { //[]
+    for (int i = 1; i < data.length; i++) {// i = , []
+      int current = data[i];  Integer temp = null; //current =
+      for (int j = 0; j <= i; j++) { // j =
+        if (current < data[j] && temp == null) { //
+          temp = data[j]; //temp =
+          data[j] = current; //[]
+        } else if (temp != null) { //j =                      .... j =
+          int temptemp = data[j]; //tt =                      .... tt =
+          data[j] = (int)temp; //[]                           .... []
+          temp = temptemp; //temp =                           .... temp =
         }
         //if (j == i - 1 && current > data[j]) data[i] = current;
-        //System.out.println(data.toString());
       }
+      //System.out.println(Arrays.toString(data));
      }
    }
 
